@@ -1,0 +1,56 @@
+---
+- hosts: dev
+  vars:
+     # password: This is my Password
+     password: $1$SomeSalt$UqddPX3r4kH3UL5jq5/ZI.
+     username: vagrant
+     ansible_dir: ansible
+  tasks:
+     #- action: shell whoami
+     #  register: whoami
+     
+     - name: update apt cache
+       apt: update_cache=yes cache_valid_time=3600
+       sudo: yes
+     
+     - name: upgrade the distro
+       apt: upgrade=yes
+       sudo: yes
+     
+     #- name: Add Ubuntu user
+     #  action: user name={{ username }} password={{ password }}
+     #  sudo: yes
+
+     - name: install packages
+       apt: pkg={{ item }} state=latest
+       sudo: yes
+       with_items:
+         - build-essential
+         - git
+         - tree
+         - vim
+         - curl
+         - gnupg
+         - zip
+         - rsync
+         - wget
+         - unattended-upgrades
+         - python-pip
+         - python-dev
+     
+     - name: Install Pip packakges
+       pip: name={{ item }} state=latest
+       sudo: yes
+       with_items:
+          - virtualenv
+          - PyYAML
+          - jinja2
+          - paramiko
+               
+     - name: Create ansible directory
+       file: path=/home/{{ username }}/{{ansible_dir}}/ state=directory recurse=yes mode=0644 owner={{ username }} group={{ username }} 
+       sudo: true
+       register: create_directory
+     
+     - name: Download ansible
+       action: git repo=https://github.com/ansible/ansible.git dest=/home/vagrant/ansible/
