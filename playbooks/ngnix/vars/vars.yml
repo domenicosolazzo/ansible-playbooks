@@ -1,0 +1,5 @@
+---
+connections : "1024"
+site_root: "/srv/site/"
+site_http_port: "80"
+server_hostname: "example.com"

@@ -1,0 +1,66 @@
+---
+
+- hosts: webservers
+  user: vagrant
+  sudo: True
+  vars_files:
+    - vars/vars.yml
+  tasks:
+    - name: update apt cache
+      apt: update_cache=yes cache_valid_time=3600
+      sudo: yes
+    
+    - name: upgrade the distro
+      apt: upgrade=yes
+      sudo: yes
+    
+    - name: install packages
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - build-essential
+        - git
+        - tree
+        - vim
+        - psmisc
+        - fail2ban
+        - chkrootkit
+        - ufw
+        - nginx
+        - curl
+        - gnupg
+        - zip
+        - rsync
+        - wget
+        - unattended-upgrades
+      notify:
+        - restart nginx
+    - name: ensure fail2ban is running
+      sudo: yes
+      action: service name=fail2ban state=restarted enabled=yes
+    
+    - name: reset firewall
+      sudo: yes
+      action: shell ufw --force reset
+
+    - name: allow firewall authorized ports
+      sudo: yes
+      action: shell ufw allow {{ item }}
+      with_items:
+        - 22
+        - 80
+    
+    - name: enable firewall
+      sudo: yes
+      action: shell ufw --force enable
+
+    - name: write nginx.conf
+      action: template src=templates/nginx.j2 dest=/etc/nginx/nginx.conf
+      notify:
+        - restart nginx
+    #- name: Nginx default.conf
+    #  template: src=templates/default.j2 dest=/etc/nginx/conf.d/default.conf
+    #  notify:
+    #    - restart nginx
+  handlers:
+    - { include: handlers/handlers.yml }
+

@@ -1,0 +1,5 @@
+# file: roles/hostname/defaults/main.yml
+#
+
+fqdn: localhost
+hostname: localhost

@@ -1,0 +1,11 @@
+---
+
+- name: Collecting facts
+  hosts: local
+  gather_facts: yes
+
+- hosts: local
+  roles:
+     - role: hostname
+       tags:
+          -hostname
