@@ -13,3 +13,6 @@
      - role: build
        tags: 
           - build
+     - role: python
+       tags:
+          - python
