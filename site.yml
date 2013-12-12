@@ -3,9 +3,13 @@
 - name: Collecting facts
   hosts: local
   gather_facts: yes
+  sudo: True
 
 - hosts: local
   roles:
      - role: hostname
        tags:
-          -hostname
+          - hostname
+     - role: build
+       tags: 
+          - build
