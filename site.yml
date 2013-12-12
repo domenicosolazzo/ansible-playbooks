@@ -10,9 +10,16 @@
      - role: hostname
        tags:
           - hostname
+     
      - role: build
        tags: 
           - build
+     
      - role: python
        tags:
           - python
+     
+     - role: jdk
+       tags: 
+          - jdk
+          
