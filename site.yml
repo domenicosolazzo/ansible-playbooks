@@ -29,3 +29,6 @@
      - role: maven
        tags: 
           - maven
+     - role: supervisor
+       tags:
+          - supervisord
