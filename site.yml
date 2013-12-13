@@ -22,4 +22,7 @@
      - role: jdk
        tags: 
           - jdk
-          
+    
+     - role: scala
+       tags:
+          - scala
