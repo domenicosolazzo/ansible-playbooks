@@ -1,0 +1,5 @@
+---
+
+- name: Maven | Make sure maven is installed
+  apt: pkg=maven
+  sudo: yes

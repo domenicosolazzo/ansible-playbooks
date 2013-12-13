@@ -26,3 +26,6 @@
      - role: scala
        tags:
           - scala
+     - role: maven
+       tags: 
+          - maven
