@@ -28,6 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      ansible.playbook = "../site.yml"
      ansible.inventory_path = "../inventory/hosts.yml"
      ansible.verbose = "vvvv"
+     ansible.sudo = true
   end
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

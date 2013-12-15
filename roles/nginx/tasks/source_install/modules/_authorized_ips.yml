@@ -1,0 +1,5 @@
+---
+
+- name: Update the authorized_ips file
+  template: src=../../../templates/modules/authorized_ips.j2 dest=$nginx_dir/authorized_ips owner=root group=root mode=0644
+  sudo: yes

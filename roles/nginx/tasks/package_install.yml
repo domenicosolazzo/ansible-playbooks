@@ -1,0 +1,14 @@
+---
+
+- name: Nginx | Add the nginx repo to the apt sources
+  apt_repository: repo='deb http://nginx.org/packages/ubuntu'
+
+- name: Nginx | Add the nginx apt key
+  apt_key: url=http://nginx.org/keys/nginx_signing.key
+
+- include: commons.yml
+
+- name: Nginx | Make sure nginx is installed
+  apt: pkg=nginx
+  notify:
+    - restart nginx
