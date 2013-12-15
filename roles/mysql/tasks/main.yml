@@ -1,0 +1,7 @@
+---
+
+- include: install.yml
+- include: configure.yml
+- include: secure.yml
+- include: monit.yml
+  when: monit_protection == true
