@@ -7,7 +7,10 @@
 
 - hosts: local
   roles:
-     - role: nginx
+     - role: zookeeper
        tags:
-          - nginx
+          - zookeeper
+     - role: kafka
+       tags:
+          - kafka
      
