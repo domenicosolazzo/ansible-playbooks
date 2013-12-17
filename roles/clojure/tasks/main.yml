@@ -1,4 +1,4 @@
 ---
 
 - name: Clojure | Make sure clojure is installed
-  apt: pkg=clojure force=yes
+  apt: pkg=clojure1.4 force=yes

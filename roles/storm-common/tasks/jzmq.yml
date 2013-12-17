@@ -14,6 +14,7 @@
 
 - name: Storm | (jzmq) configure and make the jzmq source
   shell: cd /tmp/jzmq && export JAVA_HOME=/usr/local/java/jdk && ./configure && make -j $machine_cpu_count
+  ignore_errors: True
 
 - name: Storm | (jzmq) make install jzmq
   shell: cd /tmp/jzmq && sudo make install

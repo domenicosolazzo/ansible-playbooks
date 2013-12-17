@@ -10,7 +10,10 @@
      - role: zookeeper
        tags:
           - zookeeper
-     - role: kafka
-       tags:
-          - kafka
+     - role: storm-common
+     - role: storm-drpc
+     ##  tags:
+     #     - storm
+     - role: storm-supervisor
+     - role: storm-nimbus
      

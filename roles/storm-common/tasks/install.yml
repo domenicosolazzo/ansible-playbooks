@@ -1,7 +1,7 @@
 ---
 
-- name: Storm | Download the storm source zip in /tmp if not yet present
-  command: wget https://dl.dropbox.com/u/133901206/storm-$storm_version.zip chdir=/tmp creates=/tmp/storm-$storm_version.zip
+- name: Storm | Download the storm source zip in /tmp if not yet present # Change the url when the version change
+  command: wget https://dl.dropboxusercontent.com/s/dj86w8ojecgsam7/storm-0.9.0.1.zip chdir=/tmp creates=/tmp/storm-$storm_version.zip
 
 - name: Storm | Unzip the storm source in /usr/local/etc
   command: unzip /tmp/storm-$storm_version.zip chdir=/usr/local/etc creates=/usr/local/etc/storm-$storm_version
