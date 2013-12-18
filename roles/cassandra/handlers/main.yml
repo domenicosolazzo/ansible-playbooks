@@ -1,0 +1,4 @@
+---
+
+- name: restart cassandra
+  supervisorctl: name=cassandra state=restarted

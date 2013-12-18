@@ -1,0 +1,8 @@
+---
+
+- name: Cassandra | Make sure the cassandra dependencies are installed
+  apt: pkg=$item
+  with_items:
+    - libboost-all-dev
+    - libboost-dev
+    - pkg-config

@@ -1,0 +1,7 @@
+---
+dependencies:
+  - { role: hostname }
+  - { role: build }
+  - { role: python }
+  - { role: jdk }
+  - { role: supervisor }
