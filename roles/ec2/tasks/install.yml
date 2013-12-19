@@ -5,6 +5,6 @@
   tasks:
     - include: security-group.yml
     - include: launch-instance.yml
-    - include: security-group.yml
+    - include: instance-group.yml
     - include: add-tag.yml
     - include: wait-ssh.yml
