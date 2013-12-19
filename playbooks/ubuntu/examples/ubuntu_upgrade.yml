@@ -1,4 +1,0 @@
----
-- hosts: dev
-  tasks:
-     - { include: ../upgrade.yml }

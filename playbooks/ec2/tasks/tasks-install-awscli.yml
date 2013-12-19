@@ -1,9 +1,0 @@
----
-- name: Install PIP
-  apt: pkg=python-pip state=latest
-
-- name: Intsall boto
-  pip: name=boto state=latest
-
-- name: Install AWS CLI
-  pip: name=awscli state=latest
