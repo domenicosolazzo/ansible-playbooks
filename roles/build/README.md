@@ -3,7 +3,7 @@
 Make sure essential build/dev tools and compilers are installed/up-to-date
 
 It will install the following packages:
-*ack
+* ack
 *acl
 *apticron
 *automake
