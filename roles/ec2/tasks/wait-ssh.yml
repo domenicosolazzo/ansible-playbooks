@@ -1,0 +1,3 @@
+---
+- name: Wait for SSH to become available
+  pause: minutes=$ssh_wait_minutes

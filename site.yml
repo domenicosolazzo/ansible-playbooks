@@ -7,13 +7,5 @@
 
 - hosts: local
   roles:
-     - role: zookeeper
-       tags:
-          - zookeeper
-     - role: storm-common
-     - role: storm-drpc
-       tags:
-          - storm
-     - role: storm-supervisor
-     - role: storm-nimbus
+     - role: cassandra
      

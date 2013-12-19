@@ -1,0 +1,12 @@
+---
+- name: Launch instances
+      local_action:
+        module: $launch_module
+        region: $ec2_region
+        keypair: $launch_keypair
+        group: $security_group_name
+        instance_type: $instance_type
+        image: $instance_image
+        count: $instance_count
+        wait: $launch_wait
+      register: ec2

@@ -1,0 +1,10 @@
+---
+- name: Example of provisioning servers
+  hosts: $host
+  connection: $host_group
+  tasks:
+    - include: security-group.yml
+    - include: launch-instance.yml
+    - include: security-group.yml
+    - include: add-tag.yml
+    - include: wait-ssh.yml

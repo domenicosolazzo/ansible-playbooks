@@ -1,0 +1,28 @@
+host: 127.0.0.1
+host_group: local
+
+security_group_module: ec2_group
+security_group_name: secGroup
+security_group_description: "My security group"
+security_group_region: us-west-2
+
+security_group_rule_protocol:tcp
+security_group_rule_port_from: 22
+security_group_rule_port_to: 22
+security_group_rule_cidr: 0.0.0.0/0
+
+
+launch_module:ec2
+launch_region: us-west-2
+launch_keypair: amazon-key
+launch_wait: yes
+
+instance_type: m1.small
+instance_image: ami-8635a9b6
+instance_count:2
+instance_user: ubunut
+
+tag_name: "My tag"
+ec2_region: us-west-2
+
+ssh_wait_minutes: 1

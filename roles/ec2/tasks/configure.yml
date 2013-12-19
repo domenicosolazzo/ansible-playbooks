@@ -1,0 +1,7 @@
+---
+- name: Configure provisioned servers
+  hosts: $security_group_name
+  user: $instance_user
+  sudo: True
+  tasks:
+    - include: awscli.yml

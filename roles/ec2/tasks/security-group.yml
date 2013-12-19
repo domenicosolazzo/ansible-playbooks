@@ -1,0 +1,12 @@
+---
+- name: Create a security group
+  local_action:
+        module: $security_group_module
+        name: $security_group_name
+        description: $security_group_description
+        region: $ec2_region
+        rules:
+            - proto: $security_group_rule_protocol
+              from_port: $security_group_rule_port_from
+              to_port: $security_group_rule_port_to
+              cidr_ip: $cidr_ip
