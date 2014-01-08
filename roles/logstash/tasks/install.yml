@@ -1,0 +1,4 @@
+
+- name: Logstash | Logstash JDK | Download Logstash
+  command: wget '$logstash_download_url' chdir=/tmp creates=/tmp/$logstash_download_filename
+  sudo: yes
