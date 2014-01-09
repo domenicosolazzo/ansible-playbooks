@@ -1,0 +1,16 @@
+---
+- name: Logstash | Make sure the logstash group is present
+  action: group gid=$logstash_gid name=$logstash_group state=present
+  sudo: yes
+
+- name: Logstash | Make sure the logstash user directory is present
+  action: file path="/app/home/$logstash_user" state=directory
+  sudo: yes
+
+- name: Logstash | Make sure the logstash user is present
+  user: uid=$logstash_uid name=$logstash_user group=$logstash_group home="/app/home/$logstash_user" shell=/bin/bash state=present comment="Logstash user"
+  sudo: yes
+
+- name: Logstash | Set the right logstash user directory permissions
+  action: file path="/app/home/$logstash_user" owner=$logstash_user group=$logstash_group mode=0700 state=directory
+  sudo: yes

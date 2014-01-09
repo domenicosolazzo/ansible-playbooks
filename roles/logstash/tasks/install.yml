@@ -1,4 +1,18 @@
+#- name: Logstash | Copy the logstash source in /usr/local/etc/logstash/<logstash-version>
+#  command: rsync /tmp/$logstash_download_filename /usr/local/etc/logstash/$logstash_version/ creates=/usr/local/etc/logstash/$logstash_version
+#  sudo: yes
 
-- name: Logstash | Logstash JDK | Download Logstash
-  command: wget '$logstash_download_url' chdir=/tmp creates=/tmp/$logstash_download_filename
+- name: Logstash | Update the logstash install permissions
+  file: path=/usr/local/etc/logstash/$logstash_version owner=$logstash_user group=$logstash_group state=directory recurse=yes
   sudo: yes
+
+- name: Logstash | Make sure the local working directory for logstash is present
+  file: path=$logstash_local_dir owner=$logstash_user group=$logstash_group mode=0750 state=directory
+  sudo: yes
+
+
+- name: Logstash | Download Logstash
+  command: wget '$logstash_download_url' chdir=/usr/local/etc/logstash/$logstash_version creates=/usr/local/etc/logstash/$logstash_version/$logstash_download_filename
+  sudo: yes
+
+

@@ -1,6 +1,8 @@
 ---
 
 dependencies:
+    - { role: apt }
     - { role: hostname }
     - { role: build }
+    - { role: python }
     - { role: jdk }

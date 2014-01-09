@@ -15,4 +15,5 @@
     - libwww-perl
     - update-notifier-common
     - uuid-dev
+    - language-pack-en
 

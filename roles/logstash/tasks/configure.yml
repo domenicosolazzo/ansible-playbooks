@@ -1,0 +1,9 @@
+---
+
+- name: Logstash | Update the logstash configuration
+  sudo: yes
+  template: src=logstash.conf.j2 dest=/usr/local/etc/logstash/logstash.conf owner=$logstash_user group=$logstash_group mode=0644
+  
+- name: Logstash | Start logstash
+  command: java -jar /usr/local/etc/logstash/$logstash_version/$logstash_download_filename agent -f /usr/local/etc/logstash/logstash.conf -- web
+  sudo: yes

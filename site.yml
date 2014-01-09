@@ -7,5 +7,5 @@
 
 - hosts: local
   roles:
-     - role: cassandra
+     - role: logstash
      
