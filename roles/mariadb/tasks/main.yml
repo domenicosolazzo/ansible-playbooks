@@ -8,3 +8,9 @@
 - name: 1c. Install MariaDB server package
   apt: name=mariadb-server state=present
 
+- name: Install python Mysql package #required for mysql_db tasks
+  apt: name=python-mysqldb state=present
+
+- name: 6. Install MySQL extension for PHP
+  apt: name=php5-mysql state=present
+
