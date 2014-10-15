@@ -1,0 +1,10 @@
+---
+- name: 1a. Add APT GPG signing key
+  apt_key: url=http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xCBCB082A1BB943DB state=present
+
+- name: 1b. Add APT repository
+  apt_repository: repo='deb http://ftp.osuosl.org/pub/mariadb/repo/10.0/ubuntu $ansible_distribution_release main' state=present update_cache=yes
+
+- name: 1c. Install MariaDB server package
+  apt: name=mariadb-server state=present
+
