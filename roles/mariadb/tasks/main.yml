@@ -13,4 +13,5 @@
 
 - name: 6. Install MySQL extension for PHP
   apt: name=php5-mysql state=present
+  when: mariadb_php_support
 
